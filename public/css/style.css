@@ -61,7 +61,7 @@ body{
     justify-content: space-evenly;
     text-decoration: none;
     color: #222222;
-     width:14.7rem !important; 
+    width:14.7rem !important; 
     margin-left:4px !important;    
 }
 .card-img-overlay{
@@ -82,7 +82,7 @@ body{
 }
 .bgcolor{
     background-color:  rgb(233, 182, 161) !important;
-    color: white !important;
+    color: black !important;
 }
 .btns{
     display: flex;

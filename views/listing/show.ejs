@@ -18,9 +18,7 @@
                     </p> 
                       <p>  &#x20B9;<%= Listing.price.toLocaleString("en-IN")%>/night</p>
                        <p><%= Listing.location %> </p>
-                       <p><%=  Listing.country  %>   </p>             
-                  
-                  
+                       <p><%=  Listing.country  %>   </p>                              
                 </div>
            </div>
         </div>
@@ -46,8 +44,7 @@
                
                <div class="mb-3">
                 <lable for="rating" class="form-lable">Rating</lable>
-                <fieldset class="starability-slot">
-                  
+                <fieldset class="starability-slot">                 
                   <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
                   <input type="radio" id="first-rate1" name="review[rating]" value="1" />
                   <label for="first-rate1" title="Terrible">1 star</label>
@@ -65,9 +62,8 @@
                 <lable for="comment" class="form-lable">Comment</lable>
                 <textarea class="form-control" name="review[comment]" col="10" rows="5" id="comment" required></textarea>
                 <div class="invalid-feedback">please submit some comment </div>
-              </div>
-           
-              <button class="btn btn-outline-dark">submit</button>
+              </div>          
+              <button class="btn btn-sm btn-dark">submit</button>
             </form>
             <% } %>
 
@@ -105,9 +101,9 @@
           <% } %>   
           
            
-       </div>
+      </div>
        <div class="col-8 offset-3">
-        <h4>Where you'll be</h4>
+        <!-- <h4>Where you'll be</h4> -->
         <div class="map"></div>
         <script>
           // TO MAKE THE MAP APPEAR YOU MUST
@@ -122,8 +118,8 @@
                 center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
                 zoom: 9 // starting zoom
             });
-        </script>
-     </div>
+          </script>
+      </div>
   
     
     
