@@ -4,12 +4,12 @@ const listing= require("../models/listing");
 
 module.exports.index= async (req,res)=>{
     let listings= await listing.find({});
-    res.render("./listing/index.ejs" ,{listings});
+  return   res.render("./listing/index.ejs" ,{listings});
 };
 
 module.exports.newForm=(req,res)=>{
    
-    res.render("listing/newForm.ejs" );
+   return  res.render("listing/newForm.ejs" );
 };
 
 
@@ -27,9 +27,9 @@ module.exports.showRoute =async (req,res)=>{
         
     if(!Listing){
        req.flash("error" ,"Listing you requested  for does not exit!");
-       res.redirect("/listings");
+       return res.redirect("/listings");
     }
-    res.render("./listing/show.ejs" ,{Listing});
+   return  res.render("./listing/show.ejs" ,{Listing});
 }
 
 module.exports.createRoute =async (req,res,next)=>{
@@ -45,19 +45,19 @@ module.exports.createRoute =async (req,res,next)=>{
     console.log(newListing);
     await newListing.save();
     req.flash("success" ,"New listing created!");
-    res.redirect("/listings");
-    next();
+    return res.redirect("/listings");
+    // next();
 }
 module.exports.editRoute= async (req,res)=>{
     let {id}=req.params;
     let Listing=await listing.findById(id);
     if(!Listing){
         req.flash("error" ,"Listing you requested  for does not exit!");
-        res.redirect("/listings");
+        return res.redirect("/listings");
      }
      let originalImageUrl = Listing.image.url;
      originalImageUrl = originalImageUrl.replace("/upload" , "/upload/w_300");
-      res.render("./listing/edit.ejs" ,{Listing, originalImageUrl});
+      return res.render("./listing/edit.ejs" ,{Listing, originalImageUrl});
 }
 
 module.exports.updateRoute= async (req,res)=>{
@@ -71,14 +71,14 @@ module.exports.updateRoute= async (req,res)=>{
     await Listing.save();
    }
     req.flash("success" ,"listing  updated!");
-    res.redirect(`/listings/${id}`);
+   return  res.redirect(`/listings/${id}`);
 }
 
 module.exports.deleteRoute =async (req,res)=>{
     let {id}=req.params;
     await listing.findByIdAndDelete(id);
     req.flash("success" ," listing Deleted!");
-    res.redirect(`/listings`);
+  return   res.redirect(`/listings`);
 }
 //**************************************************** */
 
