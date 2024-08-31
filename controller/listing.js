@@ -9,8 +9,10 @@ module.exports.index= async (req,res)=>{
 
 module.exports.newForm=(req,res)=>{
    
-    res.render("./listing/newform.ejs" );
+    res.render("listing/newForm.ejs" );
 };
+
+
 
 module.exports.showRoute =async (req,res)=>{
     let {id}=req.params;
